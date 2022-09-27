@@ -12,7 +12,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class RekamMedis extends StatefulWidget {
-  const RekamMedis({Key? key,}) : super(key: key);
+  const RekamMedis({
+    Key? key,
+  }) : super(key: key);
   @override
   _RekamMedisState createState() => _RekamMedisState();
 }
@@ -66,7 +68,6 @@ class _RekamMedisState extends State<RekamMedis> {
   int? umur;
   int? tanggalawal = 0, bulanawal = 0, tahunawal = 0;
 
-
   String? _valuegoldar = 'pilih';
   String? _valueidentitas = 'pilih';
   String? _valueagama = 'pilih';
@@ -78,8 +79,6 @@ class _RekamMedisState extends State<RekamMedis> {
   String? imageUrlidentitas;
   String? imageUrlKRS;
   late String emaila;
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -104,47 +103,49 @@ class _RekamMedisState extends State<RekamMedis> {
             child: ListView(
               children: [
                 Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'Identitas : ',
-                          textAlign: TextAlign.left,
-                        ),
-                        DropdownButton(
-                            value: _valueidentitas,
-                            elevation: 10,
-                            items: const [
-                              DropdownMenuItem(
-                                value: 'pilih',
-                                child: Text("pilih"),
-                              ),
-                              DropdownMenuItem(
-                                value: 'KTP',
-                                child: Text("KTP"),
-                              ),
-                              DropdownMenuItem(
-                                value: 'SIM',
-                                child: Text("SIM"),
-                              ),
-                              DropdownMenuItem(
-                                value: 'Paspor',
-                                child: Text("Paspor"),
-                              ),
-                            ],
-                            onChanged: (dynamic value) {
-                              setState(() {
-                                _valueidentitas = value;
-                                switchidentitas = true;
-                              });
-                            }),
-                      ],
-                    ),),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Identitas : ',
+                        textAlign: TextAlign.left,
+                      ),
+                      DropdownButton(
+                          value: _valueidentitas,
+                          elevation: 10,
+                          items: const [
+                            DropdownMenuItem(
+                              value: 'pilih',
+                              child: Text("pilih"),
+                            ),
+                            DropdownMenuItem(
+                              value: 'KTP',
+                              child: Text("KTP"),
+                            ),
+                            DropdownMenuItem(
+                              value: 'SIM',
+                              child: Text("SIM"),
+                            ),
+                            DropdownMenuItem(
+                              value: 'Paspor',
+                              child: Text("Paspor"),
+                            ),
+                          ],
+                          onChanged: (dynamic value) {
+                            setState(() {
+                              _valueidentitas = value;
+                              switchidentitas = true;
+                            });
+                          }),
+                    ],
+                  ),
+                ),
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   child: TextFormField(
                     controller: NIK,
                     decoration: InputDecoration(
@@ -184,8 +185,20 @@ class _RekamMedisState extends State<RekamMedis> {
                     ),
                   ),
                 ),
+                ElevatedButton(
+                    onPressed: () {
+                      uploadIdentitas();
+                    },
+                    child: Text('Upload Foto Kartu Identitas')),
+                ElevatedButton(
+                    onPressed: () {
+                      uploadKRS();
+                    },
+                    child: Text('Upload KRS')),
+                Divider(thickness: 2,),
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   child: TextFormField(
                     controller: Nama,
                     decoration: InputDecoration(
@@ -225,9 +238,9 @@ class _RekamMedisState extends State<RekamMedis> {
                     ),
                   ),
                 ),
-
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   child: TextFormField(
                     controller: TempatLahir,
                     decoration: InputDecoration(
@@ -240,7 +253,7 @@ class _RekamMedisState extends State<RekamMedis> {
 
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                        const BorderSide(color: Colors.blue, width: 1.0),
+                            const BorderSide(color: Colors.blue, width: 1.0),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       fillColor: Colors.grey,
@@ -268,9 +281,9 @@ class _RekamMedisState extends State<RekamMedis> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                  child:
-                  DateTimePicker(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  child: DateTimePicker(
                     type: DateTimePickerType.date,
                     dateMask: 'd MMM, yyyy',
                     initialValue: DateTime.now().toString(),
@@ -295,13 +308,18 @@ class _RekamMedisState extends State<RekamMedis> {
                     onSaved: (val) => print(val),
                   ),
                 ),
+                const SizedBox(
+                  height: 12,
+                ),
                 Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 12,
                     ),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                       Text(
                           'Jenis Kelamin : ',
                           textAlign: TextAlign.left,
                         ),
@@ -342,8 +360,10 @@ class _RekamMedisState extends State<RekamMedis> {
                         ),
                       ],
                     )),
+
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   child: TextFormField(
                     controller: TempatLahir,
                     decoration: InputDecoration(
@@ -384,7 +404,8 @@ class _RekamMedisState extends State<RekamMedis> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   child: TextFormField(
                     controller: Kecamatan,
                     decoration: InputDecoration(
