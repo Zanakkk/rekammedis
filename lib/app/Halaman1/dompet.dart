@@ -5,6 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icon.dart';
+import 'package:rekammedis/app/Halaman1/payment/sendkoaspay.dart';
+import 'package:rekammedis/app/Halaman1/payment/topup.dart';
 
 class dompet extends StatefulWidget {
   const dompet({Key? key}) : super(key: key);
@@ -99,7 +101,12 @@ class _dompetState extends State<dompet> {
                           Column(
                             children: [
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const KirimKoasPay()));
+                                },
                                 icon: LineIcon.paperPlane(),
                                 iconSize: 32,
                               ),
@@ -109,7 +116,12 @@ class _dompetState extends State<dompet> {
                           Column(
                             children: [
                               IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => const TopUp()));
+                                },
                                 icon: LineIcon.plusSquare(),
                                 iconSize: 32,
                               ),

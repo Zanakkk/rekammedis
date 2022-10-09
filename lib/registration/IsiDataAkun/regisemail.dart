@@ -1,8 +1,8 @@
 // ignore_for_file: file_names, library_private_types_in_public_api
 
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:rekammedis/app/HalamanRumah/HalamanRumah.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
 import '../../api/AuthServices.dart';
@@ -38,13 +38,17 @@ class _RegisEmailScreenState extends State<RegisEmailScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(mainAxisAlignment: MainAxisAlignment.center,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: (MediaQuery.of(context).size.height - MediaQuery.of(context).size.width)/3 ),
+                        SizedBox(
+                            height: (MediaQuery.of(context).size.height -
+                                    MediaQuery.of(context).size.width) /
+                                3),
                         Padding(
                           padding: const EdgeInsets.all(24),
                           child: Image.asset(
-                            'assets/icons/Logo Ident Pasien Sil.png',
+                            'assets/onboard/Halaman3.png',
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -60,29 +64,26 @@ class _RegisEmailScreenState extends State<RegisEmailScreen> {
                               if (snapshot.hasData) {
                                 return Builder(
                                   builder: (context) {
-                                    final GlobalKey<SlideActionState>
-                                    key = GlobalKey();
+                                    final GlobalKey<SlideActionState> key =
+                                        GlobalKey();
                                     return Padding(
-                                      padding:
-                                      const EdgeInsets.all(12.0),
+                                      padding: const EdgeInsets.all(12.0),
                                       child: SlideAction(
-                                        outerColor:
-                                        Colors.teal.shade900,
+                                        outerColor: Colors.teal.shade900,
                                         innerColor: Colors.white,
                                         key: key,
                                         text: 'Lanjut ke Aplikasi',
                                         textStyle: const TextStyle(
-                                            fontSize: 20,
-                                            color: Colors.white),
+                                            fontSize: 20, color: Colors.white),
                                         onSubmit: () {
-                                          Navigator.push(context, MaterialPageRoute(
-                                              builder: (BuildContext context) {
-                                                return const IsiData();
-                                              }));
+                                          Navigator.push(context,
+                                              MaterialPageRoute(builder:
+                                                  (BuildContext context) {
+                                            return const IsiData();
+                                          }));
                                           Future.delayed(
                                             const Duration(seconds: 1),
-                                                () => key.currentState
-                                                ?.reset(),
+                                            () => key.currentState?.reset(),
                                           );
                                         },
                                       ),
@@ -92,7 +93,8 @@ class _RegisEmailScreenState extends State<RegisEmailScreen> {
                               } else {
                                 return InkWell(
                                   child: SizedBox(
-                                    width: MediaQuery.of(context).size.width - 48,
+                                    width:
+                                        MediaQuery.of(context).size.width - 48,
                                     child: Card(
                                       color: Colors.teal.shade900,
                                       clipBehavior: Clip.antiAlias,
@@ -108,20 +110,24 @@ class _RegisEmailScreenState extends State<RegisEmailScreen> {
                                         child: Text(
                                           'Masuk dengan Akun Google',
                                           textAlign: TextAlign.center,
-                                          style: TextStyle(color: Colors.white,fontSize: 14),
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 14),
                                         ),
                                       ),
                                     ),
                                   ),
-                                  onTap: (){
+                                  onTap: () {
                                     AuthServices.signInWithGoogle();
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const HalamanRumah()));
                                   },
                                 );
                               }
                             }),
-
-
-
                       ],
                     ),
                   ],

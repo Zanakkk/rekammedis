@@ -1,7 +1,10 @@
 
+// ignore_for_file: file_names, camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gradient_widgets/gradient_widgets.dart';
+import 'package:rekammedis/app/Halaman1/pasien%20lama/pasien%20lama.dart';
 
 class pasienlama extends StatefulWidget {
   const pasienlama({Key? key}) : super(key: key);
@@ -21,21 +24,26 @@ class _pasienlamaState extends State<pasienlama> {
           borderRadius: BorderRadius.circular(12),
         ),
         elevation: 8,
-        child: SizedBox(
-            height: ((MediaQuery.of(context).size.width)-20) / 2 ,
-            width: ((MediaQuery.of(context).size.width)-20) / 2 ,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text(
-                  'Daftar Pasien Lama',
-                  style: GoogleFonts.pathwayGothicOne(
-                      fontSize: 20, color: Colors.white),
+        child: InkWell(
+          child: SizedBox(
+              height: ((MediaQuery.of(context).size.width)-20) / 2 ,
+              width: ((MediaQuery.of(context).size.width)-20) / 2 ,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [Text(
+                    'Daftar Pasien Lama',
+                    style: GoogleFonts.pathwayGothicOne(
+                        fontSize: 20, color: Colors.white),
+                  ),
+                  ],
                 ),
-                ],
-              ),
-            )));
+              )),
+          onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const daftarshiftpasienlama()));
+          },
+        ));
   }
 }

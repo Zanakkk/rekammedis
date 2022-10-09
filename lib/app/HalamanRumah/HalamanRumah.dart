@@ -6,11 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:rekammedis/registration/IsiDataAkun/isidata.dart';
+import 'package:rekammedis/api/AuthServices.dart';
+import 'package:rekammedis/app/Halaman2/Listpasienyangdidaftarkan.dart';
 
 import '../Halaman1/Daftar Pasien Baru.dart';
 import '../Halaman1/Daftar pasien lama.dart';
 import '../Halaman1/dompet.dart';
+import '../Halaman2/ListPasien.dart';
+import '../Halaman3/Halaman3.dart';
 import '../lihatprofil.dart';
 
 class HalamanRumah extends StatefulWidget {
@@ -35,7 +38,11 @@ class _HalamanRumahState extends State<HalamanRumah> {
       backgroundColor: Colors.white,
       extendBody: true,
       appBar: AppBar(
-        title: const Text("RSGM FKG UNAND"),
+        title: (_selectedIndex == 0)
+            ? const Text("RSGM FKG UNAND")
+            : (_selectedIndex == 1)
+                ? const Text("KERJA")
+                : const Text("INFO KOAS"),
         centerTitle: true,
         titleTextStyle: GoogleFonts.pathwayGothicOne(
             fontWeight: FontWeight.w500, fontSize: 24, color: Colors.white),
@@ -100,25 +107,63 @@ class _HalamanRumahState extends State<HalamanRumah> {
           color: Colors.grey.shade50,
           height: MediaQuery.of(context).size.height,
           child: Center(
-            child: Column(
-              children: [
-                const dompet(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    pasienbaru(),
-                    pasienlama(),
-                  ],
-                ),
-                const Text('pantek'),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => const IsiData()));
-                    },
-                    child: const Text('login'))
-              ],
-            ),
+            child: (_selectedIndex == 0)
+                ? Column(
+                    children: [
+                      const dompet(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: const [
+                          pasienbaru(),
+                          pasienlama(),
+                        ],
+                      ),
+                      InkWell(
+                        child: Card(
+                            clipBehavior: Clip.antiAlias,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            elevation: 2,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 8, horizontal: 8),
+                              child: SizedBox(
+                                height: 40,
+                                width: MediaQuery.of(context).size.width,
+                                child: const Center(
+                                  child: Text('List Pasien'),
+                                ),
+                              ),
+                            )),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ListPasien()));
+                        },
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const ListPasien()));
+                          },
+                          child: const Text('login')),
+                    ],
+                  )
+                : (_selectedIndex == 1)
+                    ? Column(
+                        children: const [
+                          ListPasienYangDidaftarkan(),
+                        ],
+                      )
+                    : Column(
+                        children: const [
+                          Tab3(),
+                        ],
+                      ),
           )),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
@@ -143,9 +188,6 @@ class _HalamanRumahState extends State<HalamanRumah> {
                 ),
                 GButton(
                   icon: LineIcons.hospital,
-                ),
-                GButton(
-                  icon: LineIcons.book,
                 ),
                 GButton(
                   icon: LineIcons.user,
