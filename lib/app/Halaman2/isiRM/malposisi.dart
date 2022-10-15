@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:rekammedis/app/Halaman2/isiRM/OHI.dart';
 
 class MalposisiGigi extends StatefulWidget {
   const MalposisiGigi({Key? key}) : super(key: key);
@@ -23,343 +22,347 @@ class _MalposisiGigiState extends State<MalposisiGigi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('MalposisiGigi'),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.teal.shade900,
-      ),
-      body: ListView(
-        children: [
-
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12,
+        appBar: AppBar(
+          title: const Text('MalposisiGigi'),
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: Colors.black,
+        ),
+        body: SingleChildScrollView(
+            child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height - 200,
+              child: ListView(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Gigi 11 : ',
+                          textAlign: TextAlign.left,
+                        ),
+                        DropdownButton(
+                            value: Gigi11,
+                            elevation: 10,
+                            items: const [
+                              DropdownMenuItem(
+                                value: 'TAK',
+                                child: Text("TAK"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiolinguoversi',
+                                child: Text("mesiolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distolinguoversi',
+                                child: Text("distolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiolabioversi',
+                                child: Text("mesiolabioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distolabioversi',
+                                child: Text("distolabioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiopalatoversi',
+                                child: Text("bukopalatoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distopalatoversi',
+                                child: Text("distolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("bukopalatoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("distobukoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("labioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("linguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("bukoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("palatoversi"),
+                              ),
+                            ],
+                            onChanged: (dynamic value) {
+                              setState(() {
+                                Gigi11 = value;
+                              });
+                            }),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Gigi 12 : ',
+                          textAlign: TextAlign.left,
+                        ),
+                        DropdownButton(
+                            value: Gigi12,
+                            elevation: 10,
+                            items: const [
+                              DropdownMenuItem(
+                                value: 'TAK',
+                                child: Text("TAK"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiolinguoversi',
+                                child: Text("mesiolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distolinguoversi',
+                                child: Text("distolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiolabioversi',
+                                child: Text("mesiolabioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distolabioversi',
+                                child: Text("distolabioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiopalatoversi',
+                                child: Text("bukopalatoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distopalatoversi',
+                                child: Text("distolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("bukopalatoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("distobukoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("labioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("linguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("bukoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("palatoversi"),
+                              ),
+                            ],
+                            onChanged: (dynamic value) {
+                              setState(() {
+                                Gigi12 = value;
+                              });
+                            }),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Gigi 13 : ',
+                          textAlign: TextAlign.left,
+                        ),
+                        DropdownButton(
+                            value: Gigi13,
+                            elevation: 10,
+                            items: const [
+                              DropdownMenuItem(
+                                value: 'TAK',
+                                child: Text("TAK"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiolinguoversi',
+                                child: Text("mesiolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distolinguoversi',
+                                child: Text("distolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiolabioversi',
+                                child: Text("mesiolabioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distolabioversi',
+                                child: Text("distolabioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiopalatoversi',
+                                child: Text("bukopalatoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distopalatoversi',
+                                child: Text("distolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("bukopalatoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("distobukoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("labioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("linguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("bukoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("palatoversi"),
+                              ),
+                            ],
+                            onChanged: (dynamic value) {
+                              setState(() {
+                                Gigi13 = value;
+                              });
+                            }),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Gigi 14 : ',
+                          textAlign: TextAlign.left,
+                        ),
+                        DropdownButton(
+                            value: Gigi14,
+                            elevation: 10,
+                            items: const [
+                              DropdownMenuItem(
+                                value: 'TAK',
+                                child: Text("TAK"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiolinguoversi',
+                                child: Text("mesiolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distolinguoversi',
+                                child: Text("distolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiolabioversi',
+                                child: Text("mesiolabioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distolabioversi',
+                                child: Text("distolabioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiopalatoversi',
+                                child: Text("bukopalatoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distopalatoversi',
+                                child: Text("distolinguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("bukopalatoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("distobukoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("labioversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("linguoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'mesiobukoversi',
+                                child: Text("bukoversi"),
+                              ),
+                              DropdownMenuItem(
+                                value: 'distobukoversi',
+                                child: Text("palatoversi"),
+                              ),
+                            ],
+                            onChanged: (dynamic value) {
+                              setState(() {
+                                Gigi14 = value;
+                              });
+                            }),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Text(
-                  'Gigi 11 : ',
-                  textAlign: TextAlign.left,
+                SizedBox(
+                  width: (MediaQuery.of(context).size.width / 3) - 20,
+                  child: ElevatedButton(
+                      onPressed: () {}, child: const Text('Kembali')),
                 ),
-                DropdownButton(
-                    value: Gigi11,
-                    elevation: 10,
-                    items: const [
-                      DropdownMenuItem(
-                        value: 'TAK',
-                        child: Text("TAK"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiolinguoversi',
-                        child: Text("mesiolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distolinguoversi',
-                        child: Text("distolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiolabioversi',
-                        child: Text("mesiolabioversi"),
-                      ),
-
-                      DropdownMenuItem(
-                        value: 'distolabioversi',
-                        child: Text("distolabioversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiopalatoversi',
-                        child: Text("bukopalatoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distopalatoversi',
-                        child: Text("distolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("bukopalatoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("distobukoversi"),
-                      ),
-
-
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("labioversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("linguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("bukoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("palatoversi"),
-                      ),
-
-                    ],
-                    onChanged: (dynamic value) {
-                      setState(() {
-                        Gigi11 = value;
-                      });
-                    }),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Gigi 12 : ',
-                  textAlign: TextAlign.left,
+                SizedBox(
+                  width: (MediaQuery.of(context).size.width / 3) - 20,
+                  child: ElevatedButton(
+                      onPressed: () {}, child: const Text('Simpan')),
                 ),
-                DropdownButton(
-                    value: Gigi12,
-                    elevation: 10,
-                    items: const [
-                      DropdownMenuItem(
-                        value: 'TAK',
-                        child: Text("TAK"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiolinguoversi',
-                        child: Text("mesiolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distolinguoversi',
-                        child: Text("distolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiolabioversi',
-                        child: Text("mesiolabioversi"),
-                      ),
-
-                      DropdownMenuItem(
-                        value: 'distolabioversi',
-                        child: Text("distolabioversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiopalatoversi',
-                        child: Text("bukopalatoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distopalatoversi',
-                        child: Text("distolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("bukopalatoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("distobukoversi"),
-                      ),
-
-
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("labioversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("linguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("bukoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("palatoversi"),
-                      ),
-
-                    ],
-                    onChanged: (dynamic value) {
-                      setState(() {
-                        Gigi12 = value;
-                      });
-                    }),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Gigi 13 : ',
-                  textAlign: TextAlign.left,
+                SizedBox(
+                  width: (MediaQuery.of(context).size.width / 3) - 20,
+                  child: ElevatedButton(
+                      onPressed: () {}, child: const Text('Lanjut')),
                 ),
-                DropdownButton(
-                    value: Gigi13,
-                    elevation: 10,
-                    items: const [
-                      DropdownMenuItem(
-                        value: 'TAK',
-                        child: Text("TAK"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiolinguoversi',
-                        child: Text("mesiolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distolinguoversi',
-                        child: Text("distolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiolabioversi',
-                        child: Text("mesiolabioversi"),
-                      ),
-
-                      DropdownMenuItem(
-                        value: 'distolabioversi',
-                        child: Text("distolabioversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiopalatoversi',
-                        child: Text("bukopalatoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distopalatoversi',
-                        child: Text("distolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("bukopalatoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("distobukoversi"),
-                      ),
-
-
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("labioversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("linguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("bukoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("palatoversi"),
-                      ),
-
-                    ],
-                    onChanged: (dynamic value) {
-                      setState(() {
-                        Gigi13 = value;
-                      });
-                    }),
               ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 12,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Gigi 14 : ',
-                  textAlign: TextAlign.left,
-                ),
-                DropdownButton(
-                    value: Gigi14,
-                    elevation: 10,
-                    items: const [
-                      DropdownMenuItem(
-                        value: 'TAK',
-                        child: Text("TAK"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiolinguoversi',
-                        child: Text("mesiolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distolinguoversi',
-                        child: Text("distolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiolabioversi',
-                        child: Text("mesiolabioversi"),
-                      ),
-
-                      DropdownMenuItem(
-                        value: 'distolabioversi',
-                        child: Text("distolabioversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiopalatoversi',
-                        child: Text("bukopalatoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distopalatoversi',
-                        child: Text("distolinguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("bukopalatoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("distobukoversi"),
-                      ),
-
-
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("labioversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("linguoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'mesiobukoversi',
-                        child: Text("bukoversi"),
-                      ),
-                      DropdownMenuItem(
-                        value: 'distobukoversi',
-                        child: Text("palatoversi"),
-                      ),
-
-                    ],
-                    onChanged: (dynamic value) {
-                      setState(() {
-                        Gigi14 = value;
-                      });
-                    }),
-              ],
-            ),
-          ),
-          ElevatedButton(onPressed: (){
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) {
-                  return const OHI();}));}, child: const Text('OHI')),
-
-        ],
-      ),
-    );
+            )
+          ],
+        )));
   }
 }
-

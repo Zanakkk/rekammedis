@@ -30,12 +30,11 @@ class _daftarshiftpasienlamaState extends State<daftarshiftpasienlama> {
         title: const Text('Registrasi'),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.teal.shade900,
       ),
       body: Theme(
           data: ThemeData(
-              colorScheme: ColorScheme.fromSwatch()
-                  .copyWith(primary: Colors.teal.shade900)),
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.black)
+                  .copyWith(primary: Colors.black)),
           child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
               child: Column(
@@ -47,7 +46,7 @@ class _daftarshiftpasienlamaState extends State<daftarshiftpasienlama> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     (SwitchOn)
-                        ? Text('Nomor RM : 1811412020')
+                        ? const Text('Nomor RM : 1811412020')
                         : Container(
                       margin: const EdgeInsets.symmetric(
                           horizontal: 12, vertical: 4),
@@ -409,15 +408,16 @@ class _daftarshiftpasienlamaState extends State<daftarshiftpasienlama> {
                 ),
 
                 SizedBox(
-                  height: 100,
+                  height: 80,
                   child: Builder(
                     builder: (context) {
                       final GlobalKey<SlideActionState> key = GlobalKey();
                       return Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: SlideAction(
-                          outerColor: Colors.teal.shade900,
+                          outerColor: Colors.black,
                           innerColor: Colors.white,
+                          sliderButtonIconSize: 16,
                           key: key,
                           text: 'Daftar Pasien',
                           textStyle:

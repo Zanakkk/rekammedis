@@ -48,8 +48,8 @@ class _Tab3State extends State<Tab3> {
                           ),
                           Text(
                             'Akun',
-                            style: GoogleFonts.pathwayGothicOne(
-                                fontWeight: FontWeight.w500, fontSize: 20),
+                            style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500, fontSize: 16),
                           ),
                         ],
                       ),
@@ -76,13 +76,15 @@ class _Tab3State extends State<Tab3> {
                       children: [
                         Text(
                           'email: ',
-                          style: GoogleFonts.pathwayGothicOne(
-                              fontWeight: FontWeight.w500, fontSize: 20),
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.grey,
+                              fontSize: 14),
                         ),
                         Text(
                           emaila.toString(),
-                          style: GoogleFonts.pathwayGothicOne(
-                              fontWeight: FontWeight.w500, fontSize: 20),
+                          style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w500, fontSize: 14),
                         ),
                       ],
                     ),
@@ -109,15 +111,16 @@ class _Tab3State extends State<Tab3> {
                                 children: [
                                   Text(
                                     'nama :  ',
-                                    style: GoogleFonts.pathwayGothicOne(
+                                    style: GoogleFonts.poppins(
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 20),
+                                        color: Colors.grey,
+                                        fontSize: 14),
                                   ),
                                   Text(
                                     nama,
-                                    style: GoogleFonts.pathwayGothicOne(
+                                    style: GoogleFonts.poppins(
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 20),
+                                        fontSize: 14),
                                   ),
                                 ],
                               ),
@@ -130,15 +133,16 @@ class _Tab3State extends State<Tab3> {
                                 children: [
                                   Text(
                                     'nomor HP: ',
-                                    style: GoogleFonts.pathwayGothicOne(
+                                    style: GoogleFonts.poppins(
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 20),
+                                        color: Colors.grey,
+                                        fontSize: 14),
                                   ),
                                   Text(
                                     noHP,
-                                    style: GoogleFonts.pathwayGothicOne(
+                                    style: GoogleFonts.poppins(
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 20),
+                                        fontSize: 14),
                                   ),
                                 ],
                               ),

@@ -22,6 +22,7 @@ class _ListPasienYangDidaftarkanState extends State<ListPasienYangDidaftarkan> {
       height: MediaQuery.of(context).size.height,
       child: ListView(
         children: [
+
           StreamBuilder<QuerySnapshot>(
             stream: riwayatkonsultasi.snapshots(),
             builder: (_, AsyncSnapshot snapshot) {

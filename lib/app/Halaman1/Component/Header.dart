@@ -1,6 +1,9 @@
+// ignore_for_file: file_names, non_constant_identifier_names
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../lihatprofil.dart';
 
@@ -13,63 +16,105 @@ class Header extends StatefulWidget {
 
 class _HeaderState extends State<Header> {
   @override
-  Widget build(BuildContext context) {FirebaseFirestore firestore = FirebaseFirestore.instance;
-  CollectionReference userdata = firestore.collection('user');
+  Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference userdata = firestore.collection('user');
 
-  final FirebaseAuth auth = FirebaseAuth.instance;
-  final User? user = auth.currentUser;
-  final useremail = user?.email;
-    return Column(
-      children: [
-        StreamBuilder<DocumentSnapshot>(
-          stream: userdata.doc(useremail.toString()).snapshots(),
-          builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData) {
-              Map<String, dynamic> data =
-                  snapshot.data!.data() as Map<String, dynamic>;
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    final User? user = auth.currentUser;
+    final useremail = user?.email;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      child: StreamBuilder<DocumentSnapshot>(
+        stream: userdata.doc(useremail.toString()).snapshots(),
+        builder: (context, AsyncSnapshot snapshot) {
+          if (snapshot.hasData) {
+            Map<String, dynamic> data =
+                snapshot.data!.data() as Map<String, dynamic>;
 
-              String? imageUrl = data['imageurl'];
+            String? imageUrl = data['imageurl'];
+            String? nama = data['nama'];
+            String? NIM = data['NIM'];
 
-              return Align(
-                alignment: Alignment.centerRight,
-                child: InkWell(
-                  child: Card(
-                      elevation: 4,
-                      clipBehavior: Clip.antiAlias,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25),
+            return Align(
+              alignment: Alignment.centerLeft,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(height: 4,),
+                            Text(
+                              nama!,
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 20,
+                              color: Colors.black,
+                            )
+                            ),
+                            Text(
+                              NIM!,style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w300,
+                              fontSize: 16,
+                              color: Colors.black,
+                            )
+                            ),
+                          ],
+                        ),
                       ),
-                      child: Container(
-                        child: (imageUrl == null)
-                            ? const Image(
-                                image: NetworkImage(
-                                    'https://firebasestorage.googleapis.com/v0/b/teledentistry-70122.appspot.com/o/foto_blog%2Fkosong.png?alt=media&token=652482ea-7fa4-451f-913a-912c83d3ebd1'),
-                                height: 36,
-                                width: 36,
-                                fit: BoxFit.cover,
-                              )
-                            : Image(
-                                image: NetworkImage(imageUrl),
-                                height: 36,
-                                width: 36,
-                                fit: BoxFit.cover,
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: InkWell(
+                          child: Card(
+                              elevation: 4,
+                              clipBehavior: Clip.antiAlias,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25),
                               ),
-                      )),
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return const LihatProfil();
-                    }));
-                  },
-                ),
-              );
-            }
-            return const Center(
-              child: CircularProgressIndicator(),
+                              child: Container(
+                                child: (imageUrl == null)
+                                    ? const Image(
+                                        image: NetworkImage(
+                                            'https://firebasestorage.googleapis.com/v0/b/teledentistry-70122.appspot.com/o/foto_blog%2Fkosong.png?alt=media&token=652482ea-7fa4-451f-913a-912c83d3ebd1'),
+                                        height: 48,
+                                        width: 48,
+                                        fit: BoxFit.cover,
+                                      )
+                                    : Image(
+                                        image: NetworkImage(imageUrl),
+                                        height: 48,
+                                        width: 48,
+                                        fit: BoxFit.cover,
+                                      ),
+                              )),
+                          onTap: () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return const LihatProfil();
+                            }));
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             );
-          },
-        ),
-      ],
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
+      ),
     );
   }
 }

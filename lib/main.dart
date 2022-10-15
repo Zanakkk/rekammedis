@@ -23,9 +23,17 @@ void main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
       overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
 
-  runApp(const MaterialApp(
+  runApp(MaterialApp(
+    theme: ThemeData(
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.black, // background (button) color
+          foregroundColor: Colors.white, // foreground (text) color
+        ),
+      ),
+    ),
     debugShowCheckedModeBanner: false,
-    home: MyApp(),
+    home: const MyApp(),
   ));
 }
 

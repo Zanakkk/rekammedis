@@ -67,6 +67,8 @@ dependencies:
   firebase_app_check: ^0.0.6+12
   qr_code_scanner: ^1.0.0
   gradient_widgets: ^0.6.0
+  dotted_line: ^3.1.0
+  signature: ^5.2.1
 
 dev_dependencies:
   flutter_test:

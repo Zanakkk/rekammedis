@@ -1,7 +1,7 @@
 // ignore_for_file: file_names, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:rekammedis/app/Halaman2/isiRM/GI.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class OHI extends StatefulWidget {
   const OHI({Key? key}) : super(key: key);
@@ -66,807 +66,942 @@ class _OHIState extends State<OHI> {
     int OHIIndex = DebrisIndex + KalkulusIndex;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('OHI'),
-        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.teal.shade900,
-      ),
-      body: ListView(
-        children: [
-          const Center(
-            child: Text('Debris'),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+        appBar: AppBar(
+          title: const Text('OHI'),
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: Colors.black,
+        ),
+        body: SingleChildScrollView(
+            child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height - 200,
+              child: ListView(
                 children: [
-                  SizedBox(
-                      width: (MediaQuery.of(context).size.width) / 4,
-                      child: const Text('Maxila Bukal')),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrisbukalmaxilakanan,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
+                  Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      elevation: 2,
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 4),
+                          Center(
+                            child: Text('Debris',style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              color: Colors.black,
+                            )),
                           ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(
+                                      width: (MediaQuery.of(context).size.width) / 4,
+                                      child: const Text('Maxila Bukal')),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrisbukalmaxilakanan,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrisbukalmaxilakanan = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrisbukalmaxilaant,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrisbukalmaxilaant = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrisbukalmaxilakiri,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrisbukalmaxilakiri = value;
+                                          });
+                                        }),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(
+                                      width: (MediaQuery.of(context).size.width) / 4,
+                                      child: const Text('Maxila Palatal')),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrispalatalmaxilakanan,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrispalatalmaxilakanan = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrispalatalmaxilaant,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrispalatalmaxilaant = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrispalatalmaxilakiri,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrispalatalmaxilakiri = value;
+                                          });
+                                        }),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(
+                                      width: (MediaQuery.of(context).size.width) / 4,
+                                      child: const Text('Mandibula Bukal')),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrisbukalmandibulakanan,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrisbukalmandibulakanan = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrisbukalmandibulaant,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrisbukalmandibulaant = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrisbukalmandibulakiri,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrisbukalmandibulakiri = value;
+                                          });
+                                        }),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(
+                                      width: (MediaQuery.of(context).size.width) / 4,
+                                      child: const Text('Mandibula Lingual')),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrislingualmandibulakanan,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrislingualmandibulakanan = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrislingualmandibulaant,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrislingualmandibulaant = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width:
+                                    (MediaQuery.of(context).size.width - 100) / 4,
+                                    child: DropdownButton(
+                                        value: debrislingualmandibulakiri,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            debrislingualmandibulakiri = value;
+                                          });
+                                        }),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilakanan = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrisbukalmaxilaant,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
+                      )),
+                  Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      elevation: 2,
+                      child: Column(
+                        children: [
+                          const SizedBox(height: 4),
+
+                          Center(
+                            child: Text('Kalkulus',style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              color: Colors.black,
+                            )),
                           ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(
+                                      width: (MediaQuery.of(context).size.width) / 4,
+                                      child: const Text('Maxila Bukal')),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkulusbukalmaxilakanan,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkulusbukalmaxilakanan = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkulusbukalmaxilaant,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkulusbukalmaxilaant = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkulusbukalmaxilakiri,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkulusbukalmaxilakiri = value;
+                                          });
+                                        }),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(
+                                      width: (MediaQuery.of(context).size.width) / 4,
+                                      child: const Text('Maxila Palatal')),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkuluspalatalmaxilakanan,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkuluspalatalmaxilakanan = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkuluspalatalmaxilaant,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkuluspalatalmaxilaant = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkuluspalatalmaxilakiri,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkuluspalatalmaxilakiri = value;
+                                          });
+                                        }),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(
+                                      width: (MediaQuery.of(context).size.width) / 4,
+                                      child: const Text('Mandibula Bukal')),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkulusbukalmandibulakanan,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkulusbukalmandibulakanan = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkulusbukalmandibulaant,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkulusbukalmandibulaant = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkulusbukalmandibulakiri,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkulusbukalmandibulakiri = value;
+                                          });
+                                        }),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  SizedBox(
+                                      width: (MediaQuery.of(context).size.width) / 4,
+                                      child: const Text('Mandibula Lingual')),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkuluslingualmandibulakanan,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkuluslingualmandibulakanan = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkuluslingualmandibulaant,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkuluslingualmandibulaant = value;
+                                          });
+                                        }),
+                                  ),
+                                  SizedBox(
+                                    width: 40,
+                                    child: DropdownButton(
+                                        value: kalkuluslingualmandibulakiri,
+                                        elevation: 10,
+                                        items: const [
+                                          DropdownMenuItem(
+                                            value: 0,
+                                            child: Text("0"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 1,
+                                            child: Text("1"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 2,
+                                            child: Text("2"),
+                                          ),
+                                          DropdownMenuItem(
+                                            value: 3,
+                                            child: Text("3"),
+                                          ),
+                                        ],
+                                        onChanged: (dynamic value) {
+                                          setState(() {
+                                            kalkuluslingualmandibulakiri = value;
+                                          });
+                                        }),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilaant = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrisbukalmaxilakiri,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
+                      )),
+                  Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      elevation: 2,
+                      child: SizedBox(
+                        width: 250,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 8),
+                          child: Column(
+                            children: [
+                              Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 8),
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text('Jumlah Debris Index',
+                                              style: GoogleFonts.poppins(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 12,
+                                                color: Colors.black,
+                                              )),
+                                          Text((DebrisIndex / 6).toString(),
+                                              style: GoogleFonts.poppins(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 12,
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text('Jumlah Calculus Index',
+                                              style: GoogleFonts.poppins(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 12,
+                                                color: Colors.black,
+                                              )),
+                                          Text((KalkulusIndex / 6).toString(),
+                                              style: GoogleFonts.poppins(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 12,
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text('OHI Index',
+                                              style: GoogleFonts.poppins(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 12,
+                                                color: Colors.black,
+                                              )),
+                                          Text((OHIIndex / 6).toString(),
+                                              style: GoogleFonts.poppins(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 12,
+                                                color: Colors.black,
+                                              )),
+                                        ],
+                                      ),
+                                    ],
+                                  )),
+                            ],
                           ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilakiri = value;
-                          });
-                        }),
-                  ),
+                        ),
+                      )),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                      width: (MediaQuery.of(context).size.width) / 4,
-                      child: const Text('Maxila Palatal')),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrispalatalmaxilakanan,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilakanan = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrispalatalmaxilaant,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilaant = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrispalatalmaxilakiri,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilakiri = value;
-                          });
-                        }),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                      width: (MediaQuery.of(context).size.width) / 4,
-                      child: const Text('Mandibula Bukal')),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrisbukalmandibulakanan,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilakanan = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrisbukalmandibulaant,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilaant = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrisbukalmandibulakiri,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilakiri = value;
-                          });
-                        }),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                      width: (MediaQuery.of(context).size.width) / 4,
-                      child: const Text('Mandibula Lingual')),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrislingualmandibulakanan,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilakanan = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrislingualmandibulaant,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilaant = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: debrislingualmandibulakiri,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            debrisbukalmaxilakiri = value;
-                          });
-                        }),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 100,
-          ),
-          const Center(
-            child: Text('Kalkulus'),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                      width: (MediaQuery.of(context).size.width) / 4,
-                      child: const Text('Maxila Bukal')),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkulusbukalmaxilakanan,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilakanan = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkulusbukalmaxilaant,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilaant = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkulusbukalmaxilakiri,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilakiri = value;
-                          });
-                        }),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                      width: (MediaQuery.of(context).size.width) / 4,
-                      child: const Text('Maxila Palatal')),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkuluspalatalmaxilakanan,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilakanan = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkuluspalatalmaxilaant,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilaant = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkuluspalatalmaxilakiri,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilakiri = value;
-                          });
-                        }),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                      width: (MediaQuery.of(context).size.width) / 4,
-                      child: const Text('Mandibula Bukal')),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkulusbukalmandibulakanan,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilakanan = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkulusbukalmandibulaant,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilaant = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkulusbukalmandibulakiri,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilakiri = value;
-                          });
-                        }),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  SizedBox(
-                      width: (MediaQuery.of(context).size.width) / 4,
-                      child: const Text('Mandibula Lingual')),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkuluslingualmandibulakanan,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilakanan = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkuluslingualmandibulaant,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilaant = value;
-                          });
-                        }),
-                  ),
-                  SizedBox(
-                    width: (MediaQuery.of(context).size.width - 100) / 4,
-                    child: DropdownButton(
-                        value: kalkuluslingualmandibulakiri,
-                        elevation: 10,
-                        items: const [
-                          DropdownMenuItem(
-                            value: 0,
-                            child: Text("0"),
-                          ),
-                          DropdownMenuItem(
-                            value: 1,
-                            child: Text("1"),
-                          ),
-                          DropdownMenuItem(
-                            value: 2,
-                            child: Text("2"),
-                          ),
-                          DropdownMenuItem(
-                            value: 3,
-                            child: Text("3"),
-                          ),
-                        ],
-                        onChanged: (dynamic value) {
-                          setState(() {
-                            kalkulusbukalmaxilakiri = value;
-                          });
-                        }),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          Text('jumlah debris index : ${DebrisIndex / 6}'),
-          Text('jumlah calculus index : ${KalkulusIndex / 6}'),
-          Text('OHI INDEX : ${OHIIndex / 6}'),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const GI();
-                }));
-              },
-              child: const Text('Lanjut isi Gingival Index')),
-        ],
-      ),
-    );
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SizedBox(
+                  width: (MediaQuery.of(context).size.width / 3) - 20,
+                  child: ElevatedButton(
+                      onPressed: () {}, child: const Text('Kembali')),
+                ),
+                SizedBox(
+                  width: (MediaQuery.of(context).size.width / 3) - 20,
+                  child: ElevatedButton(
+                      onPressed: () {}, child: const Text('Simpan')),
+                ),
+                SizedBox(
+                  width: (MediaQuery.of(context).size.width / 3) - 20,
+                  child: ElevatedButton(
+                      onPressed: () {}, child: const Text('Lanjut')),
+                ),
+              ],
+            )
+          ],
+        )));
   }
 }

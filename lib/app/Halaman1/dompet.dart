@@ -24,116 +24,124 @@ class _dompetState extends State<dompet> {
     final User? user = auth.currentUser;
     final UserEmail = user?.email;
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      child: Card(
-          clipBehavior: Clip.antiAlias,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          elevation: 2,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 8),
-                  child: SizedBox(
-                    child: Card(
-                        clipBehavior: Clip.antiAlias,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        elevation: 1,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 12),
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  LineIcon.wallet(),
-                                  const SizedBox(
-                                    width: 8,
-                                  ),
-                                  const Text(
-                                    'koaspay',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                ],
-                              ),
-                              StreamBuilder<DocumentSnapshot>(
-                                stream: pengguna
-                                    .doc(UserEmail!)
-                                    .collection('koaspay')
-                                    .doc('koaspay')
-                                    .snapshots(),
-                                builder: (context, AsyncSnapshot snapshot) {
-                                  if (snapshot.hasData) {
-                                    Map<String, dynamic> data = snapshot.data!
-                                        .data() as Map<String, dynamic>;
+    return Card(
+        clipBehavior: Clip.antiAlias,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        elevation: 2,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: SizedBox(
+                  child: Card(
+                      clipBehavior: Clip.antiAlias,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      elevation: 1,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 12, vertical: 12),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                LineIcon.wallet(),
+                                const SizedBox(
+                                  width: 8,
+                                ),
+                                const Text(
+                                  'koaspay',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ],
+                            ),
+                            StreamBuilder<DocumentSnapshot>(
+                              stream: pengguna
+                                  .doc(UserEmail!)
+                                  .collection('koaspay')
+                                  .doc('koaspay')
+                                  .snapshots(),
+                              builder: (context, AsyncSnapshot snapshot) {
+                                if (snapshot.hasData) {
+                                  Map<String, dynamic> data = snapshot.data!
+                                      .data() as Map<String, dynamic>;
 
-                                    int saldo;
-                                    saldo = data['saldo'];
-                                    final currencyFormatter =
-                                        NumberFormat('#,##0.00', 'ID');
-                                    return Text(
-                                        'Rp ${currencyFormatter.format(saldo)}',style: const TextStyle(fontSize: 12),);
-                                  }
-                                  return const Center(
-                                    child: CircularProgressIndicator(),
+                                  int saldo;
+                                  saldo = data['saldo'];
+                                  final currencyFormatter =
+                                  NumberFormat('#,##0.00', 'ID');
+                                  return Text(
+                                    'Rp ${currencyFormatter.format(saldo)}',
+                                    style: const TextStyle(fontSize: 12),
                                   );
-                                },
-                              ),
-                            ],
-                          ),
-                        )),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.4,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            children: [
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => const KirimKoasPay()));
-                                },
-                                icon: LineIcon.paperPlane(),
-                                iconSize: 32,
-                              ),
-                              const Text('send'),
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => const TopUp()));
-                                },
-                                icon: LineIcon.plusSquare(),
-                                iconSize: 32,
-                              ),
-                              const Text('top up'),
-                            ],
-                          ),
-                        ],
+                                }
+                                return const Center(
+                                  child: CircularProgressIndicator(),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
                       )),
                 ),
-              ],
-            ),
-          )),
-    );
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 8),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.4,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                    const KirimKoasPay()));
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              LineIcon.paperPlane(
+                                size: 36,
+                              ),
+                              const Text('Send'),
+                            ],
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const TopUp()));
+                          },
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: const [
+                              Icon(
+                                Icons.attach_money,
+                                size: 36.0,
+                              ),
+                              Text('Top Up'),
+                            ],
+                          ),
+                        ),
+
+                      ],
+                    )),
+              ),
+            ],
+          ),
+        ));
   }
 }

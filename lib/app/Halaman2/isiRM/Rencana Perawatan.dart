@@ -30,7 +30,7 @@ class _RencanaPerawatanState extends State<RencanaPerawatan> {
   TextEditingController gigi12O = TextEditingController();
   TextEditingController gigi12A = TextEditingController();
   TextEditingController gigi12P = TextEditingController();
-
+  bool _value = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,12 +38,12 @@ class _RencanaPerawatanState extends State<RencanaPerawatan> {
         title: const Text('Rencana Perawatan'),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.teal.shade900,
+        backgroundColor: Colors.black,
       ),
       body: Column(
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height - 200,
+            height: MediaQuery.of(context).size.height - 225,
             child: ListView(
               children: [
                 Padding(
@@ -492,39 +492,60 @@ class _RencanaPerawatanState extends State<RencanaPerawatan> {
                           ],
                         ))
                     : Container(),
+                Center(
+                  child: SizedBox(
+                      width: double.infinity,
+                      height: 100,
+                      child: Row(
+                        children: [
+                          Checkbox(
+                            activeColor: Colors.black,
+                            value: _value,
+                            onChanged: (value) {
+                              setState(() {});
+                              _value = value!;
+                            },
+                          ),
+                          const Text('Validasi')
+                        ],
+                      )),
+                ),
               ],
             ),
           ),
-          SizedBox(
-            height: 100,
-            child: Builder(
-              builder: (context) {
-                final GlobalKey<SlideActionState> key = GlobalKey();
-                return Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: SlideAction(
-                    outerColor: Colors.teal.shade900,
-                    innerColor: Colors.white,
-                    key: key,
-                    text: 'ACC Pasien',
-                    textStyle:
-                        const TextStyle(fontSize: 20, color: Colors.white),
-                    onSubmit: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const HalamanRumah()));
+          (_value)
+              ? SizedBox(
+                  height: 100,
+                  child: Builder(
+                    builder: (context) {
+                      final GlobalKey<SlideActionState> key = GlobalKey();
+                      return Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: SlideAction(
+                          outerColor: Colors.black,
+                          innerColor: Colors.white,
+                          key: key,
+                          text: 'ACC Pasien',
+                          textStyle: const TextStyle(
+                              fontSize: 20, color: Colors.white),
+                          onSubmit: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const HalamanRumah()));
 
-                      Future.delayed(
-                        const Duration(seconds: 1),
-                        () => key.currentState?.reset(),
+                            Future.delayed(
+                              const Duration(seconds: 1),
+                              () => key.currentState?.reset(),
+                            );
+                          },
+                        ),
                       );
                     },
                   ),
-                );
-              },
-            ),
-          ),
+                )
+              : Container(),
         ],
       ),
     );
