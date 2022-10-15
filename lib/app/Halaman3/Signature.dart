@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:signature/signature.dart';
 
 class SignatureDosen extends StatefulWidget {
@@ -81,22 +82,38 @@ class _SignatureDosenState extends State<SignatureDosen> {
 
   @override
   Widget build(BuildContext context) {
+
+    double swidth = MediaQuery.of(context).size.width;
+    double sheight = MediaQuery.of(context).size.height;
+
     return MaterialApp(
       home: Builder(
         builder: (BuildContext context) => Scaffold(
           body: ListView(
             children: <Widget>[
-              const SizedBox(
-                height: 300,
-                child: Center(
-                  child: Text('Big container to test scrolling issues'),
+              SizedBox(height: 120,),
+
+              Card(
+                elevation: 4,
+                clipBehavior: Clip.antiAlias,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4),
                 ),
-              ),
-              //SIGNATURE CANVAS
-              Signature(
-                controller: _controller,
-                height: 300,
-                backgroundColor: Colors.white,
+                child: Container(
+                  width: swidth / 2,
+                  height: (sheight / 2) - 100,
+                  color: Colors.black,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child:
+                    Signature(
+
+                      controller: _controller,
+                      height: 300,
+                      backgroundColor: Colors.white,
+                    ),
+                  ),
+                ),
               ),
               //OK AND CLEAR BUTTONS
               Container(
@@ -139,12 +156,6 @@ class _SignatureDosenState extends State<SignatureDosen> {
                       },
                     ),
                   ],
-                ),
-              ),
-              const SizedBox(
-                height: 300,
-                child: Center(
-                  child: Text('Big container to test scrolling issues'),
                 ),
               ),
             ],

@@ -52,7 +52,7 @@ class _HeaderState extends State<Header> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 4,),
+                            const SizedBox(height: 4,),
                             Text(
                               nama!,
                             style: GoogleFonts.poppins(

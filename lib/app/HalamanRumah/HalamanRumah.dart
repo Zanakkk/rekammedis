@@ -8,7 +8,7 @@ import 'package:rekammedis/app/Halaman1/Component/Header.dart';
 import '../Halaman1/dompet.dart';
 import '../Halaman1/pasien baru/rekammedis.dart';
 import '../Halaman1/pasien lama/pasien lama.dart';
-import '../Halaman1/payment/ticket.dart';
+import '../Halaman2/ticket.dart';
 import '../Halaman2/ListPasien.dart';
 import '../Halaman3/Halaman3.dart';
 import '../Halaman3/Signature.dart';
@@ -148,7 +148,7 @@ class _HalamanRumahState extends State<HalamanRumah> {
                                 )
                               : Column(
                                   children: [
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 48,
                                     ),
                                     const Tab3(),

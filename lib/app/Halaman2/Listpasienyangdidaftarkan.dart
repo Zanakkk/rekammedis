@@ -2,8 +2,8 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:rekammedis/app/Halaman2/Controller%20RM/isiRM%20putih/anamnesis.dart';
 
-import 'isiRM/anamnesis.dart';
 
 class ListPasienYangDidaftarkan extends StatefulWidget {
   const ListPasienYangDidaftarkan({Key? key}) : super(key: key);

@@ -1,7 +1,8 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:rekammedis/app/Halaman2/isiRM/isiLesi.dart';
+
+import 'isiLesi.dart';
 
 class Anamnesis extends StatefulWidget {
   const Anamnesis({Key? key}) : super(key: key);

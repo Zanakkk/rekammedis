@@ -4,15 +4,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:rekammedis/app/Halaman2/isiRM/GI.dart';
-import 'package:rekammedis/app/Halaman2/isiRM/OHI.dart';
-import 'package:rekammedis/app/Halaman2/isiRM/Odontogram.dart';
-import 'package:rekammedis/app/Halaman2/isiRM/Rencana%20Perawatan.dart';
-import 'package:rekammedis/app/Halaman2/isiRM/malposisi.dart';
 
+import 'GI.dart';
+import 'OHI.dart';
+import 'Odontogram.dart';
+import 'Rencana Perawatan.dart';
 import 'TindakanPerawatan.dart';
 import 'anamnesis.dart';
 import 'isiLesi.dart';
+import 'malposisi.dart';
 
 class ControllerIsiRM extends StatefulWidget {
   const ControllerIsiRM({Key? key}) : super(key: key);

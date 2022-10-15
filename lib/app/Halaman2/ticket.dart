@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 
-import '../../Halaman2/isiRM/Controller.dart';
+import 'Controller RM/Controller RM.dart';
 
 class Ticket extends StatefulWidget {
   const Ticket({Key? key}) : super(key: key);
@@ -576,7 +576,7 @@ class _TicketGabungState extends State<TicketGabung> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const ControllerIsiRM()));
+                      builder: (context) => const ControllerRMBerwarna()));
             },
             child: const Text(
               'Kerja',
