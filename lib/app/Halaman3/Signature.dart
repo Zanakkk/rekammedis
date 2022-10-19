@@ -82,7 +82,6 @@ class _SignatureDosenState extends State<SignatureDosen> {
 
   @override
   Widget build(BuildContext context) {
-
     double swidth = MediaQuery.of(context).size.width;
     double sheight = MediaQuery.of(context).size.height;
 
@@ -91,7 +90,9 @@ class _SignatureDosenState extends State<SignatureDosen> {
         builder: (BuildContext context) => Scaffold(
           body: ListView(
             children: <Widget>[
-              SizedBox(height: 120,),
+              const SizedBox(
+                height: 120,
+              ),
 
               Card(
                 elevation: 4,
@@ -105,9 +106,7 @@ class _SignatureDosenState extends State<SignatureDosen> {
                   color: Colors.black,
                   child: Padding(
                     padding: const EdgeInsets.all(8),
-                    child:
-                    Signature(
-
+                    child: Signature(
                       controller: _controller,
                       height: 300,
                       backgroundColor: Colors.white,

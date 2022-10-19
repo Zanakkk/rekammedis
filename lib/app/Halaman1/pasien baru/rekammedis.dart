@@ -13,7 +13,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:rekammedis/app/Halaman1/pasien%20baru/nomor%20RM.dart';
 import 'package:slide_to_act/slide_to_act.dart';
 
-
 class RekamMedis extends StatefulWidget {
   const RekamMedis({
     Key? key,
@@ -54,6 +53,7 @@ class _RekamMedisState extends State<RekamMedis> {
   late bool switchnikah = false;
   late bool switchagama = false;
   late bool switchgoldar = false;
+  late bool switchstatusmahasiswa = false;
   late bool switchpendidikan = false;
   late bool switchWNIWNA = false;
 
@@ -72,6 +72,7 @@ class _RekamMedisState extends State<RekamMedis> {
   int? tanggalawal = 0, bulanawal = 0, tahunawal = 0;
 
   String? _valuegoldar = 'pilih';
+  String? _valuestatusmahasiswa = 'pilih';
   String? _valueidentitas = 'pilih';
   String? _valueagama = 'pilih';
   String? _valuenikah = 'pilih';
@@ -199,11 +200,56 @@ class _RekamMedisState extends State<RekamMedis> {
                               uploadIdentitas();
                             },
                             child: const Text('Upload Foto Kartu Identitas')),
-                        ElevatedButton(
-                            onPressed: () {
-                              uploadKRS();
-                            },
-                            child: const Text('Upload KRS')),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                'Status Mahasiswa : ',
+                                textAlign: TextAlign.left,
+                              ),
+                              DropdownButton(
+                                  value: _valuestatusmahasiswa,
+                                  elevation: 10,
+                                  items: const [
+                                    DropdownMenuItem(
+                                      value: 'pilih',
+                                      child: Text("pilih"),
+                                    ),
+                                    DropdownMenuItem(
+                                      value: 'Bukan Mahasiswa UNAND',
+                                      child: Text("Bukan Mahasiswa UNAND"),
+                                    ),
+                                    DropdownMenuItem(
+                                      value: 'UNAND',
+                                      child: Text("UNAND"),
+                                    ),
+                                    DropdownMenuItem(
+                                      value: 'FKG UNAND',
+                                      child: Text("FKG UNAND"),
+                                    ),
+                                  ],
+                                  onChanged: (dynamic value) {
+                                    setState(() {
+                                      _valuestatusmahasiswa = value;
+                                      switchstatusmahasiswa = true;
+                                    });
+                                  }),
+                            ],
+                          ),
+                        ),
+                        (_valuestatusmahasiswa != 'pilih')
+                            ? (_valuestatusmahasiswa != 'Bukan Mahasiswa UNAND')
+                                ? ElevatedButton(
+                                    onPressed: () {
+                                      uploadKRS();
+                                    },
+                                    child: const Text('Upload KRS'))
+                                : Container()
+                            : Container(),
                         const Divider(
                           thickness: 2,
                         ),
