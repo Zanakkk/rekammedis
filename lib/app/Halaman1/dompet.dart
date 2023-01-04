@@ -75,7 +75,7 @@ class _dompetState extends State<dompet> {
                                   int saldo;
                                   saldo = data['saldo'];
                                   final currencyFormatter =
-                                  NumberFormat('#,##0.00', 'ID');
+                                      NumberFormat('#,##0.00', 'ID');
                                   return Text(
                                     'Rp ${currencyFormatter.format(saldo)}',
                                     style: const TextStyle(fontSize: 12),
@@ -104,7 +104,7 @@ class _dompetState extends State<dompet> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                    const KirimKoasPay()));
+                                        const KirimKoasPay()));
                           },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -136,7 +136,6 @@ class _dompetState extends State<dompet> {
                             ],
                           ),
                         ),
-
                       ],
                     )),
               ),

@@ -20,12 +20,12 @@ class _NoRMPasienState extends State<NoRMPasien> {
         title: const Text('Registrasi'),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.teal.shade900,
+        backgroundColor: Colors.black,
       ),
       body: Theme(
           data: ThemeData(
               colorScheme: ColorScheme.fromSwatch()
-                  .copyWith(primary: Colors.teal.shade900)),
+                  .copyWith(primary: Colors.black)),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
             child: Padding(

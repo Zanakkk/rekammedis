@@ -1,4 +1,4 @@
-// ignore_for_file: must_be_immutable, library_private_types_in_public_api
+// ignore_for_file: must_be_immutable, library_private_types_in_public_api, depend_on_referenced_packages
 
 import 'dart:async';
 
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 'assets/onboard/Halaman3.png',
                 fit: BoxFit.contain,
               ),
-              const Text('Blood Type Checker V 1.0'),
+              const Text('RSGM V1.0'),
             ],
           )),
     );

@@ -30,7 +30,7 @@ class _TopUpState extends State<TopUp> {
         title: const Text('TopUp'),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.teal.shade900,
+        backgroundColor: Colors.black,
       ),
       body: ListView(
         children: [

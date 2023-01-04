@@ -1,17 +1,21 @@
-// ignore_for_file: avoid_print, non_constant_identifier_names, deprecated_member_use, unnecessary_null_comparison, avoid_types_as_parameter_names, depend_on_referenced_packages, library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, non_constant_identifier_names, avoid_print, deprecated_member_use, unnecessary_null_comparison
 
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:date_time_picker/date_time_picker.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gender_picker/source/enums.dart';
 import 'package:gender_picker/source/gender_picker.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:permission_handler/permission_handler.dart';
-
 import 'package:path/path.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'dart:async';
 import '../../api/DatabaseServices.dart';
 import '../../app/HalamanRumah/HalamanRumah.dart';
 
@@ -34,35 +38,21 @@ class _IsiDataState extends State<IsiData> {
 
   String? genderr;
 
-  Widget buildUploadStatus(UploadTask task) => StreamBuilder<TaskSnapshot>(
-        stream: task.snapshotEvents,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            final snap = snapshot.data!;
-            final progress = snap.bytesTransferred / snap.totalBytes;
-            final percentage = (progress * 100).toStringAsFixed(2);
-
-            return Text(
-              'upload : $percentage %',
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            );
-          } else {
-            return const SizedBox(
-              width: 0,
-              height: 0,
-            );
-          }
-        },
-      );
-
   String? imageUrl;
+
+  ImagePicker imagePicker = ImagePicker();
+  late File file;
+
   @override
   Widget build(BuildContext context) {
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
+    CollectionReference RSGM = firestore.collection('RSGM');
+
     final FirebaseAuth auth = FirebaseAuth.instance;
     final User? user = auth.currentUser;
     final email = user!.email;
 
-    bool isCompleted = false;
+    String? valueRSGM = 'pilih';
 
     var cekstep = [false, false, false, false, false, false, false, false];
 
@@ -74,17 +64,17 @@ class _IsiDataState extends State<IsiData> {
               content: TextFormField(
                 controller: nama,
               ),
-              subtitle: const Text('nama lengkapmu')),
+              subtitle: const Text('Nama Lengkapmu')),
           Step(
               state: currentstep > 1 ? StepState.complete : StepState.indexed,
               isActive: currentstep >= 1,
               title: const Text('NIM'),
               content: TextFormField(
                 controller: NIM,
-
                 keyboardType: TextInputType.number,
+                cursorColor: Colors.black,
               ),
-              subtitle: const Text('ini akan ditampilkan di aplikasi')),
+              subtitle: const Text('NIM')),
           Step(
               state: currentstep > 2 ? StepState.complete : StepState.indexed,
               isActive: currentstep >= 2,
@@ -109,7 +99,9 @@ class _IsiDataState extends State<IsiData> {
                   } else {
                     genderr = 'Perempuan';
                   }
-                  print(Gender?.index);
+                  if (kDebugMode) {
+                    print(Gender?.index);
+                  }
                 },
                 animationDuration: const Duration(milliseconds: 300),
                 isCircular: true,
@@ -209,8 +201,6 @@ class _IsiDataState extends State<IsiData> {
                 },
                 onChanged: (val) => print(val),
                 validator: (val) {
-                  print(val);
-
                   return null;
                 },
                 onSaved: (val) => print(val),
@@ -232,6 +222,43 @@ class _IsiDataState extends State<IsiData> {
                 controller: alamat,
                 keyboardType: TextInputType.streetAddress,
               )),
+          Step(
+              state: currentstep > 7 ? StepState.complete : StepState.indexed,
+              isActive: currentstep >= 7,
+              title: const Text('RSGM'),
+              content: Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
+                  child: StreamBuilder<QuerySnapshot>(
+                      stream: RSGM.snapshots(),
+                      builder: (_, AsyncSnapshot snapshot) {
+                        if (!snapshot.hasData) {
+                          return const Center(
+                            child: CupertinoActivityIndicator(),
+                          );
+                        }
+                        return DropdownSearch<String>(
+                            dropdownDecoratorProps:
+                                const DropDownDecoratorProps(
+                              dropdownSearchDecoration: InputDecoration(
+                                labelText: "RSGM",
+                                hintText: "RSGM",
+                              ),
+                            ),
+                            items: snapshot.data!.docs
+                                .map((DocumentSnapshot document) {
+                                  Map<String, dynamic> data =
+                                      document.data()! as Map<String, dynamic>;
+                                  return data["Nama"];
+                                })
+                                .toList()
+                                .cast<String>(),
+                            onChanged: (dynamic value) {
+                              setState(() {
+                                valueRSGM = value;
+                              });
+                            });
+                      })))
         ];
 
     return Scaffold(
@@ -239,12 +266,12 @@ class _IsiDataState extends State<IsiData> {
         title: const Text('Isi Data'),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.teal.shade900,
+        backgroundColor: Colors.black,
       ),
       body: Theme(
         data: ThemeData(
-            colorScheme: ColorScheme.fromSwatch()
-                .copyWith(primary: Colors.teal.shade900)),
+            colorScheme:
+                ColorScheme.fromSwatch().copyWith(primary: Colors.black)),
         child: Stepper(
             type: StepperType.vertical,
             currentStep: currentstep,
@@ -252,8 +279,6 @@ class _IsiDataState extends State<IsiData> {
             onStepContinue: () {
               final isLastStep = currentstep == getSteps().length - 1;
               if (isLastStep) {
-                isCompleted = true;
-                print(isCompleted);
               } else {
                 setState(() {
                   currentstep += 1;
@@ -281,7 +306,7 @@ class _IsiDataState extends State<IsiData> {
                             child: ElevatedButton(
                               onPressed: () {
                                 genderr ??= 'Laki-laki';
-                                print(genderr);
+                                DatabaseServices.updateakunpayment(email, 0);
                                 DatabaseServices.updateakun(
                                   email,
                                   nama.text,
@@ -293,6 +318,7 @@ class _IsiDataState extends State<IsiData> {
                                   alamat.text,
                                   noHP.text,
                                   imageUrl.toString(),
+                                  valueRSGM!,
                                 );
 
                                 Navigator.push(
@@ -307,11 +333,11 @@ class _IsiDataState extends State<IsiData> {
                           )
                         : (cekstep[currentstep] == false)
                             ? Expanded(
-                                child: ElevatedButton(
-                                  onPressed: details.onStepContinue,
-                                  child: const Text('lanjut'),
-                                ),
-                              )
+                  child: ElevatedButton(
+                    onPressed: details.onStepCancel,
+                    child: const Text('balik'),
+                  ),
+                )
                             : Expanded(
                                 child: ElevatedButton(
                                   onPressed: () {},
@@ -322,12 +348,13 @@ class _IsiDataState extends State<IsiData> {
                       width: 20,
                     ),
                     if (currentstep != 0)
-                      Expanded(
-                        child: ElevatedButton(
-                          onPressed: details.onStepCancel,
-                          child: const Text('balik'),
-                        ),
+
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: details.onStepContinue,
+                        child: const Text('lanjut'),
                       ),
+                    )
                   ],
                 ),
               );
@@ -344,35 +371,46 @@ class _IsiDataState extends State<IsiData> {
     //Check Permissions
     await Permission.photos.request();
 
-    var permissionStatus = await Permission.photos.status;
+    image = await picker.getImage(source: ImageSource.gallery);
 
-    if (permissionStatus.isGranted) {
-      //Select Image
-      image = await picker.getImage(source: ImageSource.gallery);
+    var file = File(image!.path);
 
-      var file = File(image!.path);
+    final fileName = basename(file.path);
+    final destination = 'userprofile/$fileName';
 
-      final fileName = basename(file.path);
-      final destination = 'userprofile/$fileName';
+    if (image != null) {
+      //Upload to Firebase
+      var snapshot = await storage
+          .ref()
+          .child(destination)
+          .putFile(file)
+          .whenComplete(() => null);
 
-      if (image != null) {
-        //Upload to Firebase
-        var snapshot = await storage
-            .ref()
-            .child(destination)
-            .putFile(file)
-            .whenComplete(() => null);
+      var downloadUrl = await snapshot.ref.getDownloadURL();
 
-        var downloadUrl = await snapshot.ref.getDownloadURL();
-
-        setState(() {
-          imageUrl = downloadUrl;
-        });
-      } else {
-        print('No Path Received');
-      }
-    } else {
-      print('Grant Permissions and try again');
+      setState(() {
+        imageUrl = downloadUrl;
+      });
     }
+  }
+
+  Future pickImageCamera() async {
+    var image = await imagePicker.pickImage(source: ImageSource.camera);
+    if (image != null) {
+      setState(() {
+        file = File(image.path);
+        imageUrl = image as String?;
+      });
+    }
+  }
+
+  uploadProfileImage() async {
+    var image = await imagePicker.pickImage(source: ImageSource.gallery);
+    Reference reference = FirebaseStorage.instance
+        .ref()
+        .child('profileImage/${basename(image!.path)}');
+    UploadTask uploadTask = reference.putFile(file);
+    TaskSnapshot snapshot = await uploadTask;
+    imageUrl = await snapshot.ref.getDownloadURL();
   }
 }

@@ -20,7 +20,7 @@ class _DetailKasusState extends State<DetailKasus> {
         title: const Text('Rekam Medis'),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.teal.shade900,
+        backgroundColor: Colors.black,
       ),
       body: Column(
         children: [

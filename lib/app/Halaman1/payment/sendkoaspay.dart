@@ -25,7 +25,7 @@ class _KirimKoasPayState extends State<KirimKoasPay> {
         title: const Text('KirimKoasPay'),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.teal.shade900,
+        backgroundColor: Colors.black,
       ),
       body: ListView(
         children: [

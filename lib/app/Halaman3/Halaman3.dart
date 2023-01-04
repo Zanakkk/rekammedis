@@ -1,8 +1,14 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, file_names, library_private_types_in_public_api
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, file_names, library_private_types_in_public_api, unnecessary_null_comparison
+import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../registration/IsiDataAkun/isidata.dart';
@@ -15,6 +21,7 @@ class Tab3 extends StatefulWidget {
 }
 
 class _Tab3State extends State<Tab3> {
+  String? imageUrl;
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -161,5 +168,50 @@ class _Tab3State extends State<Tab3> {
                 ],
               ),
             )));
+  }
+
+  uploadImage() async {
+    final storage = FirebaseStorage.instance;
+    final picker = ImagePicker();
+    PickedFile? image;
+
+    //Check Permissions
+    await Permission.photos.request();
+
+    var permissionStatus = await Permission.photos.status;
+
+    if (permissionStatus.isGranted) {
+      //Select Image
+      image =
+          (await picker.pickImage(source: ImageSource.gallery)) as PickedFile?;
+
+      var file = File(image!.path);
+
+      final fileName = basename(file.path);
+      final destination = 'user/fotoprofil/$fileName';
+
+      if (image != null) {
+        //Upload to Firebase
+        var snapshot = await storage
+            .ref()
+            .child(destination)
+            .putFile(file)
+            .whenComplete(() => null);
+
+        var downloadUrl = await snapshot.ref.getDownloadURL();
+
+        setState(() {
+          imageUrl = downloadUrl;
+        });
+      } else {
+        if (kDebugMode) {
+          print('No Path Received');
+        }
+      }
+    } else {
+      if (kDebugMode) {
+        print('Grant Permissions and try again');
+      }
+    }
   }
 }

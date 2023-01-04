@@ -112,7 +112,7 @@ class CenterNextButton extends StatelessWidget {
                             child: const Padding(
                               padding: EdgeInsets.only(left: 16.0, right: 16.0),
                               child: Text(
-                                'Continue',
+                                'Lanjut',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,

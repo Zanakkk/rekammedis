@@ -20,12 +20,12 @@ class _ListPasienState extends State<ListPasien> {
         title: const Text('PasienKu'),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.teal.shade900,
+        backgroundColor: Colors.black,
       ),
       body: Container(
           color: Colors.grey.shade50,
           child: Container(
-              color: Colors.teal.shade900,
+              color: Colors.black,
               child: Container(
                   decoration: const BoxDecoration(
                     color: Colors.white,

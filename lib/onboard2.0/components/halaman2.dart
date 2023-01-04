@@ -74,7 +74,7 @@ class RelaxView extends StatelessWidget {
       child: SlideTransition(
         position: secondHalfAnimation,
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 100),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

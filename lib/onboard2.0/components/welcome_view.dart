@@ -81,7 +81,7 @@ class WelcomeView extends StatelessWidget {
               SlideTransition(
                 position: welcomeFirstHalfAnimation,
                 child: const Text(
-                  "Blood Type Checker",
+                  "RSGM UNAND",
                   style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -89,7 +89,7 @@ class WelcomeView extends StatelessWidget {
                 padding:
                     EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                 child: Text(
-                  "Daftar untuk bisa mendapatkan akses ke Blood Type Checker",
+                  "Daftar untuk bisa mendapatkan akses ke RSGM UNAND",
                   textAlign: TextAlign.center,
                 ),
               ),

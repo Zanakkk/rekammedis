@@ -13,21 +13,23 @@ class DatabaseServices {
   static CollectionReference console = firestore.collection('console');
 
   static Future<void> updateakun(
-      String? email,
-      String nama,
-      String NIM,
-      String gender,
-      String? tanggal,
-      String? bulan,
-      String? tahun,
-      String alamat,
-      String noHP,
-      String? imageUrl) async {
+    String? email,
+    String nama,
+    String NIM,
+    String gender,
+    String? tanggal,
+    String? bulan,
+    String? tahun,
+    String alamat,
+    String noHP,
+    String? imageUrl,
+    String RSGM,
+  ) async {
     await userdata.doc(email).set(
       {
         'email': email,
         'nama': nama,
-        'NIM' : NIM,
+        'NIM': NIM,
         'gender': gender,
         'tanggal': tanggal,
         'bulan': bulan,
@@ -35,6 +37,18 @@ class DatabaseServices {
         'alamat': alamat,
         'noHP': noHP,
         'imageurl': imageUrl,
+        'RSGM': RSGM,
+      },
+    );
+  }
+
+  static Future<void> updateakunpayment(
+    String? email,
+    int saldo,
+  ) async {
+    await userdata.doc(email).collection('koaspay').doc('koaspay').set(
+      {
+        'saldo': saldo,
       },
     );
   }
@@ -145,13 +159,13 @@ class DatabaseServices {
   }
 
   static Future<void> setdatagolongandarahorang(
-      int antrian,
-      String nama,
-      jeniskelamin,
-      nomorHP,
-      alamat,
-      goldar,
-      ) async {
+    int antrian,
+    String nama,
+    jeniskelamin,
+    nomorHP,
+    alamat,
+    goldar,
+  ) async {
     await listusergoldar.doc(antrian.toString()).set(
       {
         'nama': nama,
@@ -159,11 +173,10 @@ class DatabaseServices {
         'nomorHP': nomorHP,
         'alamat': alamat,
         'golongan darah': goldar,
-        'antrian':antrian,
+        'antrian': antrian,
       },
     );
   }
-
 
   static Future<void> setdatagolongandarahorang2(
     int antrian,
